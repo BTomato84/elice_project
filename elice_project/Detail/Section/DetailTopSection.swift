@@ -31,7 +31,6 @@ class DetailTopSection : SC {
                 heightDimension: .estimated(100)
             )
         )
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
         let group: NSCollectionLayoutGroup = .vertical(
             layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100.0)),
             subitems: [item]

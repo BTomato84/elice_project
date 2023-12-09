@@ -13,7 +13,7 @@ struct CourseDetail : Decodable {
     let logo_file_url : String?
     let title : String
     let short_description : String
-    let description : String
+    let description : String?
 }
 
 struct CourseDetailResult : Decodable {

@@ -17,16 +17,16 @@ class DetailViewController : SectionListViewController {
 
     private let header : DetailHeaderView = .init()
     private var interactor : DetailInteractor!
-    private var topSection : DetailTopSection!
+    private lazy var topSection : DetailTopSection = DetailTopSection(cv: cv)
+    private lazy var descriptionSection : CourseDetailDescriptionSection = CourseDetailDescriptionSection(cv: cv)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.setDelegate(self)
 
-        topSection = DetailTopSection(cv: cv)
-
         sections = [
-            topSection
+            topSection,
+            descriptionSection
         ]
 
         view.addSubview(header.view)
@@ -53,5 +53,6 @@ class DetailViewController : SectionListViewController {
 extension DetailViewController : DetailInteractorDelegate {
     func renderBy(data: CourseDetail) {
         topSection.setDetail(data)
+        descriptionSection.setDetail(data)
     }
 }
