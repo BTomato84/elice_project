@@ -12,6 +12,7 @@ typealias ItemMetaProtocol = ItemMetaForCellType & ItemMetaForRendering
 
 protocol SectionController {
     var pendding: Bool { get set } /// 데이터를 다시 가져올 필요가 있는지 여부
+    func setDelegate(_ delegate: SectionControllerDelegate)
     func setup()
     func numberOfItems() -> Int
     func cellForItemAt(indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionViewCell
@@ -21,13 +22,22 @@ protocol SectionController {
     func willDisplayItem(at indexPath: IndexPath)
 }
 
+protocol SectionControllerDelegate : AnyObject {
+    func reload()
+}
+
 class SC: SectionController {
     private weak var cv: UICollectionView?
+    private weak var delegate : SectionControllerDelegate?
 
     var pendding: Bool = true
 
     init(cv: UICollectionView) {
         self.cv = cv
+    }
+
+    func setDelegate(_ delegate: SectionControllerDelegate) {
+        self.delegate = delegate
     }
 
     func setup() {
@@ -91,6 +101,7 @@ class SC: SectionController {
 extension SC : InteractorDelegate {
     func refresh() {
         self.pendding = true
+        self.delegate?.reload()
     }
 }
 

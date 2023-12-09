@@ -57,9 +57,10 @@ class CourseView : BaseWrappedView<CourseViewRM> {
             $0.addItem(image).width(100%).height(100.0).marginBottom(8.0)
             $0.addItem(title).width(100%).marginBottom(2.0)
             $0.addItem(description).width(100%).marginBottom(8.0)
-            $0.addItem(tagHolder).padding(8.0, 0.0, 4.0, 0.0).width(100%).direction(.row).wrap(.wrap).maxHeight(52.0)
+            $0.addItem(tagHolder).padding(8.0, 0.0, 4.0, 0.0).width(100%).direction(.row).wrap(.wrap).maxHeight(48.0)
         }
         tagHolder.clipsToBounds = true
+        image.clipsToBounds = true
     }
 
     override func render(rm: CourseViewRM?) {

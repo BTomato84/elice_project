@@ -31,6 +31,8 @@
 		6EB9A1232B2420BC00F17621 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1222B2420BC00F17621 /* UIColor+Extension.swift */; };
 		6EB9A1252B24287C00F17621 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1242B24287C00F17621 /* NetworkState.swift */; };
 		6EB9A1272B242A8D00F17621 /* Bool+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1262B242A8D00F17621 /* Bool+Extension.swift */; };
+		6EB9A12A2B242B7100F17621 /* HomeNetworkSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1292B242B7100F17621 /* HomeNetworkSectionController.swift */; };
+		6EB9A12D2B242B8A00F17621 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A12C2B242B8A00F17621 /* CourseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		6EB9A1222B2420BC00F17621 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6EB9A1242B24287C00F17621 /* NetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
 		6EB9A1262B242A8D00F17621 /* Bool+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Extension.swift"; sourceTree = "<group>"; };
+		6EB9A1292B242B7100F17621 /* HomeNetworkSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkSectionController.swift; sourceTree = "<group>"; };
+		6EB9A12C2B242B8A00F17621 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		6EB9A11C2B2418CE00F17621 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6EB9A12B2B242B7B00F17621 /* Data */,
+				6EB9A1282B242B5000F17621 /* Section */,
 				6EB9A11F2B241ED500F17621 /* Views */,
 				6EB9A0F72B23F7BD00F17621 /* HomeViewController.swift */,
 			);
@@ -137,6 +143,22 @@
 				6EB9A1202B241F4D00F17621 /* CourseView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6EB9A1282B242B5000F17621 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				6EB9A1292B242B7100F17621 /* HomeNetworkSectionController.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		6EB9A12B2B242B7B00F17621 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6EB9A12C2B242B8A00F17621 /* CourseModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EB9A12D2B242B8A00F17621 /* CourseModel.swift in Sources */,
 				6EB9A11E2B24198400F17621 /* HomeHeaderView.swift in Sources */,
 				6EB9A1112B2400AC00F17621 /* FlexWrapper.swift in Sources */,
 				6EB9A1192B240B7F00F17621 /* Array+Extension.swift in Sources */,
@@ -235,6 +258,7 @@
 				6EB9A1132B24034F00F17621 /* ItemMeta.swift in Sources */,
 				6EB9A1252B24287C00F17621 /* NetworkState.swift in Sources */,
 				6EB9A1172B240A3800F17621 /* SectionController.swift in Sources */,
+				6EB9A12A2B242B7100F17621 /* HomeNetworkSectionController.swift in Sources */,
 				6EB9A1212B241F4D00F17621 /* CourseView.swift in Sources */,
 				6EB9A1152B24048700F17621 /* Cell.swift in Sources */,
 				6EB9A0F82B23F7BD00F17621 /* HomeViewController.swift in Sources */,

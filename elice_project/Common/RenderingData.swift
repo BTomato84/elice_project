@@ -93,6 +93,7 @@ struct ImageRenderingData : Equatable {
 
     init(imageName: String? = nil, imageURL: String? = nil, view: ViewRenderingData = .default) {
         self.imageName = imageName
+        self.imageURL = imageURL
         self.view = view
     }
 }

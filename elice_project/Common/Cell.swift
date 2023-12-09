@@ -9,19 +9,20 @@ import Foundation
 import UIKit
 
 final class Cell<Content>: UICollectionViewCell where Content : WrappedView {
-    private lazy var wrappedView: Content = .init(with: contentView)
+    private let wrappedView: Content = .init(with: nil)
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let _ = wrappedView
+        contentView.addSubview(wrappedView.view)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        let _ = wrappedView
+        contentView.addSubview(wrappedView.view)
     }
 
     func render(with rm: Content.RM) {
         wrappedView.render(rm: rm)
+        wrappedView.view.flex.layout(mode: .adjustHeight)
     }
 
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
@@ -43,6 +44,7 @@ final class ReusableView<Content> : UICollectionReusableView where Content : Wra
 
     func render(with rm: Content.RM) {
         wrappedView.render(rm: rm)
+        wrappedView.view.flex.layout(mode: .adjustHeight)
     }
 
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {

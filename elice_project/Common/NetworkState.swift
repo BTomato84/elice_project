@@ -12,7 +12,7 @@ enum NetworkState : Equatable {
     case done(id: String)
     case fail(error: Error, id: String)
 
-    func createBusyState() -> NetworkState {
+    static func createBusyState() -> NetworkState {
         return .busy(id: UUID().uuidString)
     }
 

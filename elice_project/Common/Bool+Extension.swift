@@ -11,4 +11,7 @@ extension Bool {
     func not() -> Bool {
         return !self
     }
+    var trueFalseString : String {
+        return self ? "true" : "false"
+    }
 }

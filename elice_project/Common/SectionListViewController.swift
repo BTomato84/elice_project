@@ -8,10 +8,15 @@
 import Foundation
 import UIKit
 
-class SectionListViewController : UIViewController {
+class SectionListViewController : UIViewController, SectionControllerDelegate {
     lazy var cv: UICollectionView = .init(frame: .zero, collectionViewLayout: UICollectionViewLayout.init())
     private var reuseIdentifiers: [String] = []
-    var sections: [SectionController] = []
+    var sections: [SectionController] = [] {
+        didSet {
+            sections.forEach { $0.setDelegate(self) }
+            reload()
+        }
+    }
     var baesSectionInset: NSDirectionalEdgeInsets = .zero
 
     private lazy var compositionalLayout: UICollectionViewCompositionalLayout = .init(
