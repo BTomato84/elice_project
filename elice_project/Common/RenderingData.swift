@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import FlexLayout
+import Kingfisher
 
 struct ViewRenderingData : Equatable {
     var borderWidth : CGFloat
@@ -17,6 +19,10 @@ struct ViewRenderingData : Equatable {
 
     static var `default` : ViewRenderingData {
         ViewRenderingData(borderWidth: 0.0, borderColor: .clear, cornerRadius: 0.0, contentMode: .topLeft, isHidden: false)
+    }
+
+    var flexDisplay : Flex.Display {
+        return isHidden ? .none : .flex
     }
 }
 
@@ -65,10 +71,11 @@ extension UILabel {
 }
 
 struct ImageRenderingData : Equatable {
-    var imageName : String
+    var imageName : String?
+    var imageURL : String?
     var view : ViewRenderingData
 
-    init(imageName: String, view: ViewRenderingData = .default) {
+    init(imageName: String? = nil, imageURL: String? = nil, view: ViewRenderingData = .default) {
         self.imageName = imageName
         self.view = view
     }
@@ -76,7 +83,13 @@ struct ImageRenderingData : Equatable {
 
 extension UIImageView {
     func render(_ data: ImageRenderingData) {
-        self.image = UIImage(named: data.imageName)
+        self.image = nil
+        if let imageName = data.imageName {
+            self.image = UIImage(named: imageName)
+        }
+        if let imageURL = data.imageURL, let url = URL(string: imageURL) {
+            self.kf.setImage(with: url)
+        }
         self.render(data.view)
     }
 }
