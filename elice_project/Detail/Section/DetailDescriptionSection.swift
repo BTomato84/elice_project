@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MarkdownKit
 
 class CourseDetailDescriptionSection : SC {
     private var courseDetail : CourseDetail? {
@@ -57,8 +58,9 @@ class CourseDetailDescriptionSection : SC {
 
 extension CourseDetail {
     var detailDescriptionRM : LabelRenderingData? {
-        guard let description, description.isEmpty.not(), let data = description.data(using: .utf8) else { return nil }
-        guard let attributedString : NSAttributedString = try? .init(markdown: data, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace)) else { return nil }
+        guard let description, description.isEmpty.not() else { return nil }
+        let markdownParser = MarkdownParser()
+        let attributedString : NSAttributedString = markdownParser.parse(description)
         return LabelRenderingData(font: .systemFont(ofSize: UIFont.systemFontSize), text: "", attributedString: attributedString, color: .black, numberOfLines: 0)
     }
 }

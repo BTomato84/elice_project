@@ -48,6 +48,7 @@
 		6EB9A14D2B247FA700F17621 /* DetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A14C2B247FA700F17621 /* DetailBottomView.swift */; };
 		6EB9A1502B24850300F17621 /* SubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A14F2B24850300F17621 /* SubscribeManager.swift */; };
 		6EB9A1522B24896E00F17621 /* HomeSubscribeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1512B24896E00F17621 /* HomeSubscribeSectionController.swift */; };
+		6EB9A1552B24979200F17621 /* MarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6EB9A1542B24979200F17621 /* MarkdownKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB9A10F2B23FD6800F17621 /* Kingfisher in Frameworks */,
+				6EB9A1552B24979200F17621 /* MarkdownKit in Frameworks */,
 				6EB9A1022B23FC3500F17621 /* FlexLayout in Frameworks */,
 				6EB9A10C2B23FD1800F17621 /* PinLayout in Frameworks */,
 				6EB9A1092B23FCDE00F17621 /* Alamofire in Frameworks */,
@@ -269,6 +271,7 @@
 				6EB9A1082B23FCDE00F17621 /* Alamofire */,
 				6EB9A10B2B23FD1800F17621 /* PinLayout */,
 				6EB9A10E2B23FD6800F17621 /* Kingfisher */,
+				6EB9A1542B24979200F17621 /* MarkdownKit */,
 			);
 			productName = elice_project;
 			productReference = 6EB9A0DF2B23F62F00F17621 /* elice_project.app */;
@@ -303,6 +306,7 @@
 				6EB9A1072B23FCDE00F17621 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6EB9A10A2B23FD1800F17621 /* XCRemoteSwiftPackageReference "PinLayout" */,
 				6EB9A10D2B23FD6800F17621 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				6EB9A1532B24979200F17621 /* XCRemoteSwiftPackageReference "MarkdownKit" */,
 			);
 			productRefGroup = 6EB9A0E02B23F62F00F17621 /* Products */;
 			projectDirPath = "";
@@ -608,6 +612,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		6EB9A1532B24979200F17621 /* XCRemoteSwiftPackageReference "MarkdownKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bmoliveira/MarkdownKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -640,6 +652,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6EB9A10D2B23FD6800F17621 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		6EB9A1542B24979200F17621 /* MarkdownKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EB9A1532B24979200F17621 /* XCRemoteSwiftPackageReference "MarkdownKit" */;
+			productName = MarkdownKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
