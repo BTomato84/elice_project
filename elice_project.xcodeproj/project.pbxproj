@@ -37,6 +37,9 @@
 		6EB9A1322B244C8F00F17621 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1312B244C8F00F17621 /* DetailViewController.swift */; };
 		6EB9A1342B244FA200F17621 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1332B244FA200F17621 /* DetailInteractor.swift */; };
 		6EB9A1372B2452B300F17621 /* DetailViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1362B2452B300F17621 /* DetailViewHeader.swift */; };
+		6EB9A13A2B2458A600F17621 /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1392B2458A600F17621 /* CourseDetail.swift */; };
+		6EB9A13C2B245BEF00F17621 /* CourseDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A13B2B245BEF00F17621 /* CourseDetailHeader.swift */; };
+		6EB9A13F2B2460CB00F17621 /* DetailTopSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A13E2B2460CB00F17621 /* DetailTopSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		6EB9A1312B244C8F00F17621 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6EB9A1332B244FA200F17621 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		6EB9A1362B2452B300F17621 /* DetailViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHeader.swift; sourceTree = "<group>"; };
+		6EB9A1392B2458A600F17621 /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
+		6EB9A13B2B245BEF00F17621 /* CourseDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailHeader.swift; sourceTree = "<group>"; };
+		6EB9A13E2B2460CB00F17621 /* DetailTopSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +180,8 @@
 		6EB9A1302B244C7F00F17621 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				6EB9A13D2B2460B900F17621 /* Section */,
+				6EB9A1382B24589400F17621 /* Data */,
 				6EB9A1352B24524700F17621 /* View */,
 				6EB9A1312B244C8F00F17621 /* DetailViewController.swift */,
 				6EB9A1332B244FA200F17621 /* DetailInteractor.swift */,
@@ -185,8 +193,25 @@
 			isa = PBXGroup;
 			children = (
 				6EB9A1362B2452B300F17621 /* DetailViewHeader.swift */,
+				6EB9A13B2B245BEF00F17621 /* CourseDetailHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6EB9A1382B24589400F17621 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6EB9A1392B2458A600F17621 /* CourseDetail.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6EB9A13D2B2460B900F17621 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				6EB9A13E2B2460CB00F17621 /* DetailTopSection.swift */,
+			);
+			path = Section;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +301,7 @@
 				6EB9A12D2B242B8A00F17621 /* CourseModel.swift in Sources */,
 				6EB9A12F2B24488100F17621 /* CourseSectionHeader.swift in Sources */,
 				6EB9A11E2B24198400F17621 /* HomeHeaderView.swift in Sources */,
+				6EB9A13A2B2458A600F17621 /* CourseDetail.swift in Sources */,
 				6EB9A1112B2400AC00F17621 /* FlexWrapper.swift in Sources */,
 				6EB9A1192B240B7F00F17621 /* Array+Extension.swift in Sources */,
 				6EB9A1272B242A8D00F17621 /* Bool+Extension.swift in Sources */,
@@ -288,6 +314,8 @@
 				6EB9A1132B24034F00F17621 /* ItemMeta.swift in Sources */,
 				6EB9A1252B24287C00F17621 /* NetworkState.swift in Sources */,
 				6EB9A1172B240A3800F17621 /* SectionController.swift in Sources */,
+				6EB9A13F2B2460CB00F17621 /* DetailTopSection.swift in Sources */,
+				6EB9A13C2B245BEF00F17621 /* CourseDetailHeader.swift in Sources */,
 				6EB9A12A2B242B7100F17621 /* HomeNetworkSectionController.swift in Sources */,
 				6EB9A1212B241F4D00F17621 /* CourseView.swift in Sources */,
 				6EB9A1152B24048700F17621 /* Cell.swift in Sources */,

@@ -17,9 +17,17 @@ class DetailViewController : SectionListViewController {
 
     private let header : DetailHeaderView = .init()
     private var interactor : DetailInteractor!
+    private var topSection : DetailTopSection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor.setDelegate(self)
+
+        topSection = DetailTopSection(cv: cv)
+
+        sections = [
+            topSection
+        ]
 
         view.addSubview(header.view)
         header.view.pin.left().top().right()
@@ -29,6 +37,8 @@ class DetailViewController : SectionListViewController {
         view.addSubview(cv)
         cv.pin.left().below(of: header.view).right().bottom()
         cv.contentInset.bottom = view.safeAreaInsets.bottom
+
+        interactor.fetch()
     }
 
     override func viewDidLayoutSubviews() {
@@ -37,5 +47,11 @@ class DetailViewController : SectionListViewController {
         header.setupTopSafeAreaHeight(view.safeAreaInsets.top)
         cv.pin.left().below(of: header.view).right().bottom()
         cv.contentInset.bottom = view.safeAreaInsets.bottom
+    }
+}
+
+extension DetailViewController : DetailInteractorDelegate {
+    func renderBy(data: CourseDetail) {
+        topSection.setDetail(data)
     }
 }
