@@ -63,14 +63,23 @@ extension UIView {
 struct LabelRenderingData : Equatable {
     var font : UIFont
     var text : String
+    var attributedString : NSAttributedString?
     var color : UIColor
     var textAlign : NSTextAlignment
     var numberOfLines : Int
     var view : ViewRenderingData
 
-    init(font: UIFont, text: String, color: UIColor, textAlign: NSTextAlignment = .left, numberOfLines: Int = 1, view: ViewRenderingData = .default) {
+    init(font: UIFont,
+         text: String,
+         attributedString: NSAttributedString? = nil,
+         color: UIColor,
+         textAlign: NSTextAlignment = .left,
+         numberOfLines: Int = 1,
+         view: ViewRenderingData = .default
+    ) {
         self.font = font
         self.text = text
+        self.attributedString = attributedString
         self.color = color
         self.textAlign = textAlign
         self.numberOfLines = numberOfLines
@@ -81,7 +90,11 @@ struct LabelRenderingData : Equatable {
 extension UILabel {
     func render(_ data: LabelRenderingData) {
         self.font = data.font
-        self.text = data.text
+        if let attributedText = data.attributedString {
+            self.attributedText = attributedText
+        } else {
+            self.text = data.text
+        }
         self.textColor = data.color
         self.textAlignment = data.textAlign
         self.numberOfLines = data.numberOfLines
