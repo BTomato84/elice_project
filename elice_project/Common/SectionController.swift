@@ -1,0 +1,112 @@
+//
+//  SectionController.swift
+//  elice_project
+//
+//  Created by 영수 박 on 2023/12/09.
+//
+
+import Foundation
+import UIKit
+
+typealias ItemMetaProtocol = ItemMetaForCellType & ItemMetaForRendering
+
+protocol SectionController {
+    var pendding: Bool { get set } /// 데이터를 다시 가져올 필요가 있는지 여부
+    func setup()
+    func numberOfItems() -> Int
+    func cellForItemAt(indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionViewCell
+    func reusableViewFor(kind: String, indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionReusableView
+    func selected(indexPath: IndexPath)
+    func layout(sectionInset: NSDirectionalEdgeInsets, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection?
+    func didShowItem(at indexPath: IndexPath)
+}
+
+class SC: SectionController {
+    private weak var cv: UICollectionView?
+
+    var pendding: Bool = true
+
+    init(cv: UICollectionView) {
+        self.cv = cv
+    }
+
+    func setup() {
+        headMeta = head()
+        bodyMetas = body()
+        pendding = false
+    }
+
+    var headMeta: (any ItemMetaProtocol)?
+    lazy var bodyMetas: [any ItemMetaProtocol] = []
+
+    func head() -> (any ItemMetaProtocol)? { return nil }
+    func body() -> [any ItemMetaProtocol] { [] }
+
+    final func numberOfItems() -> Int { bodyMetas.count }
+    final func reuseIdentifier(index: Int) -> String? { bodyMetas.safe(index)?.reuseIdentifier }
+    private func cellClass(index: Int) -> AnyClass? { bodyMetas.safe(index)?.cellClass() }
+    private func reusableClass() -> AnyClass? { headMeta?.reusableClass() }
+    private func rendering(cell: UICollectionViewCell, at: Int) -> UICollectionViewCell {
+        /// item meta의 정보로 cell 내부의 WrappedView를 rendering 시킨 후 cell을 다시 return 한다
+        bodyMetas.safe(at)?.rendering(cell: cell)
+        return cell
+    }
+
+    private func renderingHeader(reusableView: UICollectionReusableView) -> UICollectionReusableView {
+        headMeta?.rendering(reusableView: reusableView)
+        return reusableView
+    }
+
+    final func reusableViewFor(kind: String, indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionReusableView {
+        guard let cv, let headMeta, let headerClass = headMeta.reusableClass() else { return UICollectionReusableView() }
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headerIdentifier : String = "HEAD_\(headMeta.reuseIdentifier)"
+            cv.register(headerClass, forSupplementaryViewOfKind: kind, withReuseIdentifier: headerIdentifier)
+            reuseIdentifiers.append(headerIdentifier)
+            return renderingHeader(reusableView: cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath))
+        } else {
+            return UICollectionReusableView()
+        }
+    }
+
+    final func cellForItemAt(indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionViewCell {
+        let index: Int = indexPath.item
+        guard let cv, let identifier = reuseIdentifier(index: index) else { return UICollectionViewCell() }
+        if reuseIdentifiers.contains(where: { $0 == identifier }) == false {
+            guard let cellClass = cellClass(index: index) else { return UICollectionViewCell() }
+            cv.register(cellClass, forCellWithReuseIdentifier: identifier)
+            reuseIdentifiers.append(identifier)
+        }
+        return rendering(cell: cv.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath), at: index)
+    }
+
+    func selected(indexPath: IndexPath) {
+        bodyMetas.safe(indexPath.item)?.selected()
+    }
+
+    func layout(sectionInset: NSDirectionalEdgeInsets, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? { nil }
+    func didShowItem(at indexPath: IndexPath) { }
+}
+
+extension SC : InteractorDelegate {
+    func refresh() {
+        self.pendding = true
+    }
+}
+
+protocol InteractorDelegate : AnyObject {
+    func refresh()
+}
+
+class Interactor {
+
+    private weak var delegate : InteractorDelegate?
+
+    init(interactorDelegate: InteractorDelegate? = nil) {
+        self.delegate = interactorDelegate
+    }
+
+    func refresh() {
+        delegate?.refresh()
+    }
+}

@@ -23,6 +23,9 @@
 		6EB9A1112B2400AC00F17621 /* FlexWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1102B2400AC00F17621 /* FlexWrapper.swift */; };
 		6EB9A1132B24034F00F17621 /* ItemMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1122B24034F00F17621 /* ItemMeta.swift */; };
 		6EB9A1152B24048700F17621 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1142B24048700F17621 /* Cell.swift */; };
+		6EB9A1172B240A3800F17621 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1162B240A3800F17621 /* SectionController.swift */; };
+		6EB9A1192B240B7F00F17621 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1182B240B7F00F17621 /* Array+Extension.swift */; };
+		6EB9A11B2B240F2C00F17621 /* SectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A11A2B240F2C00F17621 /* SectionListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		6EB9A1102B2400AC00F17621 /* FlexWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexWrapper.swift; sourceTree = "<group>"; };
 		6EB9A1122B24034F00F17621 /* ItemMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMeta.swift; sourceTree = "<group>"; };
 		6EB9A1142B24048700F17621 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		6EB9A1162B240A3800F17621 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
+		6EB9A1182B240B7F00F17621 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		6EB9A11A2B240F2C00F17621 /* SectionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				6EB9A1102B2400AC00F17621 /* FlexWrapper.swift */,
 				6EB9A1122B24034F00F17621 /* ItemMeta.swift */,
 				6EB9A1142B24048700F17621 /* Cell.swift */,
+				6EB9A1162B240A3800F17621 /* SectionController.swift */,
+				6EB9A1182B240B7F00F17621 /* Array+Extension.swift */,
+				6EB9A11A2B240F2C00F17621 /* SectionListViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -192,10 +201,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EB9A1112B2400AC00F17621 /* FlexWrapper.swift in Sources */,
+				6EB9A1192B240B7F00F17621 /* Array+Extension.swift in Sources */,
 				6EB9A0E72B23F62F00F17621 /* ViewController.swift in Sources */,
 				6EB9A0E32B23F62F00F17621 /* AppDelegate.swift in Sources */,
 				6EB9A0E52B23F62F00F17621 /* SceneDelegate.swift in Sources */,
+				6EB9A11B2B240F2C00F17621 /* SectionListViewController.swift in Sources */,
 				6EB9A1132B24034F00F17621 /* ItemMeta.swift in Sources */,
+				6EB9A1172B240A3800F17621 /* SectionController.swift in Sources */,
 				6EB9A1152B24048700F17621 /* Cell.swift in Sources */,
 				6EB9A0F82B23F7BD00F17621 /* HomeViewController.swift in Sources */,
 				6EB9A0FF2B23FB0A00F17621 /* RenderingData.swift in Sources */,
