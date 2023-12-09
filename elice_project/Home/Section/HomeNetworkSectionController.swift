@@ -69,8 +69,11 @@ class HomeNetworkSection : SC {
     }
 
     override func body() -> [any ItemMetaProtocol] {
-        return interactor.flatCourses.map {
-            return ItemMeta<CourseView>.init(rm: $0.rm)
+        return interactor.flatCourses.map { [weak self] (item) in
+            return ItemMeta<CourseView>.init(rm: item.rm) {
+                let viewController = DetailViewController.instanceViewController(with: item.id)
+                self?.pushViewController(viewController)
+            }
         }
     }
 

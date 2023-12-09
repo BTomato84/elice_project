@@ -97,6 +97,9 @@ class SC: SectionController {
 
     func layout(sectionInset: NSDirectionalEdgeInsets, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? { nil }
     func willDisplayItem(at indexPath: IndexPath) { }
+    func pushViewController(_ viewController: UIViewController) {
+        delegate?.pusViewController(viewController)
+    }
 }
 
 extension SC : SectionInteractorDelegate {

@@ -46,7 +46,7 @@ class SectionListViewController : UIViewController, SectionControllerDelegate {
     }
 
     func pusViewController(_ viewController: UIViewController) {
-        self.navigationController?.pushViewController(viewController, animated: false)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
