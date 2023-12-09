@@ -133,8 +133,8 @@ extension Course {
                 return .init(imageName: "BookLogo", view: .init(backgroundColor: backgroundColor, cornerRadius: 10.0, contentMode: contentMode))
             }
         }()
-        let title : LabelRenderingData = .init(font: .systemFont(ofSize: 14.0, weight: .bold), text: title, color: .black)
-        let description : LabelRenderingData = .init(font: .systemFont(ofSize: 10.0), text: short_description, color: .black)
+        let title : LabelRenderingData = .init(font: .systemFont(ofSize: 14.0, weight: .bold), text: title, color: .black, numberOfLines: 2)
+        let description : LabelRenderingData = .init(font: .systemFont(ofSize: 10.0), text: short_description, color: .black, numberOfLines: 2)
         let tags : [CourseTagRM] = taglist.map { CourseTagRM.instance(text: $0) }
         let background : ViewRenderingData = .init(backgroundColor: .white)
         return CourseViewRM(image: image, title: title, description: description, tags: tags, background: background)
