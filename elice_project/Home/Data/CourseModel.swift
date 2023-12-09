@@ -20,3 +20,7 @@ struct CourseList : Decodable {
     var course_count : Int
     var courses : [Course]
 }
+
+struct SubscribedCourseList : Decodable {
+    var courses : [Course]
+}

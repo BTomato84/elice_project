@@ -47,6 +47,7 @@
 		6EB9A14B2B2478C200F17621 /* DetailLectureSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A14A2B2478C200F17621 /* DetailLectureSection.swift */; };
 		6EB9A14D2B247FA700F17621 /* DetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A14C2B247FA700F17621 /* DetailBottomView.swift */; };
 		6EB9A1502B24850300F17621 /* SubscribeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A14F2B24850300F17621 /* SubscribeManager.swift */; };
+		6EB9A1522B24896E00F17621 /* HomeSubscribeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB9A1512B24896E00F17621 /* HomeSubscribeSectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		6EB9A14A2B2478C200F17621 /* DetailLectureSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLectureSection.swift; sourceTree = "<group>"; };
 		6EB9A14C2B247FA700F17621 /* DetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomView.swift; sourceTree = "<group>"; };
 		6EB9A14F2B24850300F17621 /* SubscribeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeManager.swift; sourceTree = "<group>"; };
+		6EB9A1512B24896E00F17621 /* HomeSubscribeSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSubscribeSectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				6EB9A1292B242B7100F17621 /* HomeNetworkSectionController.swift */,
+				6EB9A1512B24896E00F17621 /* HomeSubscribeSectionController.swift */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				6EB9A1372B2452B300F17621 /* DetailViewHeader.swift in Sources */,
 				6EB9A1342B244FA200F17621 /* DetailInteractor.swift in Sources */,
 				6EB9A1492B24723800F17621 /* DetailLectureView.swift in Sources */,
+				6EB9A1522B24896E00F17621 /* HomeSubscribeSectionController.swift in Sources */,
 				6EB9A0F82B23F7BD00F17621 /* HomeViewController.swift in Sources */,
 				6EB9A0FF2B23FB0A00F17621 /* RenderingData.swift in Sources */,
 			);
