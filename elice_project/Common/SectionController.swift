@@ -18,7 +18,7 @@ protocol SectionController {
     func reusableViewFor(kind: String, indexPath: IndexPath, reuseIdentifiers: inout [String]) -> UICollectionReusableView
     func selected(indexPath: IndexPath)
     func layout(sectionInset: NSDirectionalEdgeInsets, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection?
-    func didShowItem(at indexPath: IndexPath)
+    func willDisplayItem(at indexPath: IndexPath)
 }
 
 class SC: SectionController {
@@ -85,7 +85,7 @@ class SC: SectionController {
     }
 
     func layout(sectionInset: NSDirectionalEdgeInsets, environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? { nil }
-    func didShowItem(at indexPath: IndexPath) { }
+    func willDisplayItem(at indexPath: IndexPath) { }
 }
 
 extension SC : InteractorDelegate {

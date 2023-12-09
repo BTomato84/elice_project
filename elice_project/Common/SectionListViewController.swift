@@ -28,7 +28,9 @@ class SectionListViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        cv.collectionViewLayout = compositionalLayout
+        cv.dataSource = self
+        cv.delegate = self
     }
 
     func reload() {
@@ -52,5 +54,15 @@ extension SectionListViewController : UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         sections.safe(indexPath.section)?.reusableViewFor(kind: kind, indexPath: indexPath, reuseIdentifiers: &reuseIdentifiers) ?? UICollectionReusableView()
+    }
+}
+
+extension SectionListViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        sections.safe(indexPath.section)?.selected(indexPath: indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        sections.safe(indexPath.section)?.willDisplayItem(at: indexPath)
     }
 }
