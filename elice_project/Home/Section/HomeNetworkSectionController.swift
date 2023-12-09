@@ -64,6 +64,10 @@ class HomeNetworkSection : SC {
         interactor.fetch()
     }
 
+    override func head() -> (any ItemMetaProtocol)? {
+        return ItemMeta<CourseSectionHeaderView>(rm: .instance(text: title))
+    }
+
     override func body() -> [any ItemMetaProtocol] {
         return interactor.flatCourses.map {
             return ItemMeta<CourseView>.init(rm: $0.rm)
@@ -88,6 +92,13 @@ class HomeNetworkSection : SC {
         section.interGroupSpacing = 16
         section.contentInsets = .init(top: 16.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
         section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [
+            .init(
+                layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(40.0)),
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+        ]
         return section
     }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class HomeViewController: SectionListViewController {
 
@@ -21,6 +22,11 @@ class HomeViewController: SectionListViewController {
         view.addSubview(cv)
         cv.pin.left().below(of: header.view).right().bottom()
         cv.contentInset.bottom = view.safeAreaInsets.bottom
+
+        sections = [
+            HomeNetworkSection(cv: cv, title: "무료 과목", filterIsRecommended: false, filterIsFree: true),
+            HomeNetworkSection(cv: cv, title: "추천 과목", filterIsRecommended: true, filterIsFree: false),
+        ]
     }
 
     override func viewDidLayoutSubviews() {
