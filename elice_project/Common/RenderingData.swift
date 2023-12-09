@@ -22,6 +22,20 @@ struct ViewRenderingData : Equatable {
         ViewRenderingData(backgroundColor:.clear, borderWidth: 0.0, borderColor: .clear, cornerRadius: 0.0, contentMode: .topLeft, isHidden: false)
     }
 
+    init(backgroundColor: UIColor = .clear,
+         borderWidth: CGFloat = 0.0,
+         borderColor: UIColor = .clear,
+         cornerRadius: CGFloat = 0.0,
+         contentMode: UIView.ContentMode = .topLeft,
+         isHidden: Bool = false) {
+        self.backgroundColor = backgroundColor
+        self.borderWidth = borderWidth
+        self.borderColor = borderColor
+        self.cornerRadius = cornerRadius
+        self.contentMode = contentMode
+        self.isHidden = isHidden
+    }
+
     var flexDisplay : Flex.Display {
         return isHidden ? .none : .flex
     }
