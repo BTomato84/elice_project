@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class HomeNetworkInteractor : Interactor {
+class HomeNetworkInteractor : SectionInteractor {
     private var baseUrlString : String = "https://api-rest.elice.io/org/academy/course/list/"
     private var filterIsRecommended : Bool = false
     private var filterIsFree : Bool = false
@@ -21,7 +21,7 @@ class HomeNetworkInteractor : Interactor {
     var maxCount : Int { response.last?.course_count ?? Int.max }
     private var state : NetworkState? = nil
 
-    init(delegate: InteractorDelegate, baseUrlString: String, filterIsRecommended: Bool, filterIsFree: Bool) {
+    init(delegate: SectionInteractorDelegate, baseUrlString: String, filterIsRecommended: Bool, filterIsFree: Bool) {
         super.init(interactorDelegate: delegate)
         self.baseUrlString = baseUrlString
         self.filterIsRecommended = filterIsRecommended

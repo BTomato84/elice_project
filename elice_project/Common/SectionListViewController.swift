@@ -44,6 +44,10 @@ class SectionListViewController : UIViewController, SectionControllerDelegate {
         }
         cv.reloadData()
     }
+
+    func pusViewController(_ viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: false)
+    }
 }
 
 extension SectionListViewController : UICollectionViewDataSource {

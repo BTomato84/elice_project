@@ -24,6 +24,7 @@ protocol SectionController {
 
 protocol SectionControllerDelegate : AnyObject {
     func reload()
+    func pusViewController(_ viewController: UIViewController)
 }
 
 class SC: SectionController {
@@ -98,22 +99,22 @@ class SC: SectionController {
     func willDisplayItem(at indexPath: IndexPath) { }
 }
 
-extension SC : InteractorDelegate {
+extension SC : SectionInteractorDelegate {
     func refresh() {
         self.pendding = true
         self.delegate?.reload()
     }
 }
 
-protocol InteractorDelegate : AnyObject {
+protocol SectionInteractorDelegate : AnyObject {
     func refresh()
 }
 
-class Interactor {
+class SectionInteractor {
 
-    private weak var delegate : InteractorDelegate?
+    private weak var delegate : SectionInteractorDelegate?
 
-    init(interactorDelegate: InteractorDelegate? = nil) {
+    init(interactorDelegate: SectionInteractorDelegate? = nil) {
         self.delegate = interactorDelegate
     }
 
