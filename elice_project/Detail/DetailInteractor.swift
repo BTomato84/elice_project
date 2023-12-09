@@ -10,6 +10,7 @@ import Alamofire
 
 protocol DetailInteractorDelegate : AnyObject {
     func renderBy(data: CourseDetail)
+    func renderBottom(isSubscribe: Bool)
 }
 
 class DetailInteractor {
@@ -17,14 +18,17 @@ class DetailInteractor {
     private var response : CourseDetailResult?
     private var state : NetworkState?
     private weak var delegate : DetailInteractorDelegate?
+    private var isSubscribe : Bool
 
     init(id: Int) {
         self.id = id
+        self.isSubscribe = SubscribeManager.shared.isSubscribe(id: id)
     }
 
     func setDelegate(_ delegate: DetailInteractorDelegate) {
         self.delegate = delegate
         sendDataToDelegate()
+        sendBottomRender()
     }
 
     func fetch() {
@@ -49,5 +53,19 @@ class DetailInteractor {
     private func sendDataToDelegate() {
         guard let courseDetail = response?.course else { return }
         delegate?.renderBy(data: courseDetail)
+    }
+
+    private func sendBottomRender() {
+        delegate?.renderBottom(isSubscribe: isSubscribe)
+    }
+
+    func toggleSubscribe() {
+        if isSubscribe {
+            SubscribeManager.shared.unsubscribe(id: id)
+        } else {
+            SubscribeManager.shared.subscribe(id: id)
+        }
+        isSubscribe = isSubscribe.not()
+        sendBottomRender()
     }
 }

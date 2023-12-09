@@ -43,8 +43,7 @@ class DetailViewController : SectionListViewController {
 
         view.addSubview(bottom.view)
         bottom.view.pin.left().bottom().right()
-        bottom.render(rm: .commit())
-        bottom.buttonSelected = { }
+        bottom.buttonSelected = { [weak self] in self?.interactor.toggleSubscribe() }
 
         interactor.fetch()
     }
@@ -64,5 +63,9 @@ extension DetailViewController : DetailInteractorDelegate {
     func renderBy(data: CourseDetail) {
         topSection.setDetail(data)
         descriptionSection.setDetail(data)
+    }
+
+    func renderBottom(isSubscribe: Bool) {
+        bottom.render(rm: isSubscribe ? .cancel() : .commit())
     }
 }
