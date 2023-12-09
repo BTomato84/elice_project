@@ -130,11 +130,21 @@ extension UIImageView {
 struct ButtonRenderingData : Equatable {
     var buttonImageName : String?
     var buttonTitle : String?
+    var titleFont : UIFont
+    var titleColor : UIColor
     var view : ViewRenderingData
 
-    init(buttonImageName: String, buttonTitle: String?, view: ViewRenderingData = .default) {
+    init(
+        buttonImageName: String? = nil,
+        buttonTitle: String? = nil,
+        titleFont: UIFont = .systemFont(ofSize: UIFont.systemFontSize),
+        titleColor: UIColor = .black,
+        view: ViewRenderingData = .default
+    ) {
         self.buttonImageName = buttonImageName
         self.buttonTitle = buttonTitle
+        self.titleFont = titleFont
+        self.titleColor = titleColor
         self.view = view
     }
 }
@@ -147,6 +157,8 @@ extension UIButton {
         }()
         self.setImage(image, for: .normal)
         self.setTitle(data.buttonTitle, for: .normal)
+        self.setTitleColor(data.titleColor, for: .normal)
+        self.titleLabel?.font = data.titleFont
         self.render(data.view)
     }
 }

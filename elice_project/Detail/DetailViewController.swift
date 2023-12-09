@@ -20,6 +20,7 @@ class DetailViewController : SectionListViewController {
     private lazy var topSection : DetailTopSection = DetailTopSection(cv: cv)
     private lazy var descriptionSection : CourseDetailDescriptionSection = CourseDetailDescriptionSection(cv: cv)
     private lazy var lectureSection : DetailLectureSection = DetailLectureSection(cv: cv, id: interactor.id)
+    private let bottom : DetailBottomView = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,11 @@ class DetailViewController : SectionListViewController {
         cv.pin.left().below(of: header.view).right().bottom()
         cv.contentInset.bottom = view.safeAreaInsets.bottom
 
+        view.addSubview(bottom.view)
+        bottom.view.pin.left().bottom().right()
+        bottom.render(rm: .commit())
+        bottom.buttonSelected = { }
+
         interactor.fetch()
     }
 
@@ -48,7 +54,9 @@ class DetailViewController : SectionListViewController {
         header.view.pin.left().top().right()
         header.setupTopSafeAreaHeight(view.safeAreaInsets.top)
         cv.pin.left().below(of: header.view).right().bottom()
-        cv.contentInset.bottom = view.safeAreaInsets.bottom
+        cv.contentInset.bottom = view.safeAreaInsets.bottom + (16 + 48 + 16)
+        bottom.setupBottomSafeAreaHeight(view.safeAreaInsets.bottom)
+        bottom.view.pin.left().bottom().right()
     }
 }
 
