@@ -113,10 +113,18 @@
 		6EB9A11C2B2418CE00F17621 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				6EB9A11F2B241ED500F17621 /* Views */,
 				6EB9A0F72B23F7BD00F17621 /* HomeViewController.swift */,
-				6EB9A11D2B24198400F17621 /* HomeHeaderView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		6EB9A11F2B241ED500F17621 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6EB9A11D2B24198400F17621 /* HomeHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

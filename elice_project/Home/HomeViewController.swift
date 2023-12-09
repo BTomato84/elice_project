@@ -13,16 +13,21 @@ class HomeViewController: SectionListViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
 
         view.addSubview(header.view)
         header.view.pin.left().top().right()
         header.render(rm: .default())
+
+        view.addSubview(cv)
+        cv.pin.left().below(of: header.view).right().bottom()
+        cv.contentInset.bottom = view.safeAreaInsets.bottom
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         header.view.pin.left().top().right()
         header.setupTopSafeAreaHeight(view.safeAreaInsets.top)
+        cv.pin.left().below(of: header.view).right().bottom()
+        cv.contentInset.bottom = view.safeAreaInsets.bottom
     }
 }
