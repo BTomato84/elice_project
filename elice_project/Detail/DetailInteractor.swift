@@ -13,7 +13,7 @@ protocol DetailInteractorDelegate : AnyObject {
 }
 
 class DetailInteractor {
-    private var id : Int
+    private(set) var id : Int
     private var response : CourseDetailResult?
     private var state : NetworkState?
     private weak var delegate : DetailInteractorDelegate?

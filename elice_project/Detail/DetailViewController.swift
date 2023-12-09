@@ -19,6 +19,7 @@ class DetailViewController : SectionListViewController {
     private var interactor : DetailInteractor!
     private lazy var topSection : DetailTopSection = DetailTopSection(cv: cv)
     private lazy var descriptionSection : CourseDetailDescriptionSection = CourseDetailDescriptionSection(cv: cv)
+    private lazy var lectureSection : DetailLectureSection = DetailLectureSection(cv: cv, id: interactor.id)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,8 @@ class DetailViewController : SectionListViewController {
 
         sections = [
             topSection,
-            descriptionSection
+            descriptionSection,
+            lectureSection
         ]
 
         view.addSubview(header.view)

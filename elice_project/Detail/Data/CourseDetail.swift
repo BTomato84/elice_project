@@ -20,13 +20,13 @@ struct CourseDetailResult : Decodable {
     let course : CourseDetail
 }
 
-struct lecture : Decodable {
+struct Lecture : Decodable {
     let id : Int
     let title : String
     let description : String
 }
 
-struct lectureResult : Decodable {
-    let lectures : [lecture]
+struct LectureResult : Decodable {
+    let lectures : [Lecture]
     let lecture_count : Int
 }
