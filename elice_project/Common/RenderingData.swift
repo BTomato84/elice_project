@@ -11,6 +11,7 @@ import FlexLayout
 import Kingfisher
 
 struct ViewRenderingData : Equatable {
+    var backgroundColor : UIColor
     var borderWidth : CGFloat
     var borderColor : UIColor
     var cornerRadius : CGFloat
@@ -18,7 +19,7 @@ struct ViewRenderingData : Equatable {
     var isHidden : Bool
 
     static var `default` : ViewRenderingData {
-        ViewRenderingData(borderWidth: 0.0, borderColor: .clear, cornerRadius: 0.0, contentMode: .topLeft, isHidden: false)
+        ViewRenderingData(backgroundColor:.clear, borderWidth: 0.0, borderColor: .clear, cornerRadius: 0.0, contentMode: .topLeft, isHidden: false)
     }
 
     var flexDisplay : Flex.Display {
@@ -37,6 +38,7 @@ extension UIView {
     }
 
     func render(_ data: ViewRenderingData) {
+        backgroundColor = data.backgroundColor
         setBorder(width: data.borderWidth, color: data.borderColor)
         setCornerRadius(data.cornerRadius)
         isHidden = data.isHidden
